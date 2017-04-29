@@ -5,8 +5,8 @@ shinyUI(fluidPage(
   
   selectInput(inputId = "n_states",
                 label = "Choose a State:",
-                choices = c('Select Option','Alabama', 'Texas', 'California', 'Wyoming'),
-                selected = 'Select Option'),
+                choices = c("Select Option","Alabama","Texas","California","Wyoming", "Nebraska"),
+                selected = "Texas"),
   
   textOutput(outputId = "main_plot")
   
