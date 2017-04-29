@@ -1,7 +1,7 @@
 # ui.R
 
 shinyUI(fluidPage(
-  titlePanel("title panel"),
+  titlePanel("Where is the Water??"),
   
   selectInput(inputId = "n_states",
                 label = "Choose a State:",
