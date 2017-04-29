@@ -1,24 +1,13 @@
-getSurfaceWater <- function(xParam, yParam, myList) { 
-  #serverRequest
-  #generate list
-  addValues(myList, myValue)
-}
+# ui.R
 
-getGroundWater <- function(xParam, yParam, myList) { 
-  #serverRequest
-  #generate list
-  addValues(myList, myValue) 
-}
-
-getWaterQuality <- function(xParam, yParam, myList) { 
-  #serverRequest
-  #generate list
-  addValues(myList, myValue)
-}
-
-#AuxFuncs
-
-addValues <- function(myList, myValue) { 
-  #generate result 
-}
-
+shinyUI(fluidPage(
+  titlePanel("title panel"),
+  
+  selectInput(inputId = "n_states",
+                label = "Choose a State:",
+                choices = c("Alabama", "Texas", "California", "Wyoming"),
+                selected = "Alabama"),
+  
+  plotOutput(outputId = "main_plot")
+  
+))
