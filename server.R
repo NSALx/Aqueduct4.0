@@ -17,8 +17,7 @@ shinyServer(function(input, output) {
       sCode = code[value1]
       pCode = codeP[value2]
       stDV <- readNWISdata(stateCd=sCode,parameterCd=pCode, service="dv")
-      outD <- toString(stDV[4])
-      plotOutput(outputId = outD)
+      output$outD <- renderTable(stDV)
     }
   })
 })
