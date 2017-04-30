@@ -1,24 +1,24 @@
-library(maps)
-library(dplyr)
-library(lubridate)
 library(dataRetrieval)
 
 shinyServer(function(input, output) {
   state = c("Alabama","Texas","California","Wyoming", "Nebraska")
-  code = c("AL","TX","CA","WY","NE")
-  #code = c("05427718", "05427718", "05427718", "05427719", "05427418")
+  code = c("AL","TX","CA","WI","NE")
+  parameters = c("Discharge","Gage Height","Temperature","pH")
+  codeP = c("00060", "00065", "00010", "00400", "72150")
+  
   output$main_plot <- renderText({
-    value = match(input$n_states,state)
-    
-    if(is.na(value)){
+    value1 = match(input$n_states,state)
+    value2 = match(input$parameter,parameters)
+    if(is.na(value1) || is.na(value2)){
       textOutput
     }
   
     else{
-      sCode = code[value]
-      stDV <- readNWISdata(stateCd=sCode,parameterCd="00010", service="dv")
-      stDV
-      print(sCode)
+      sCode = code[value1]
+      pCode = codeP[value2]
+      stDV <- readNWISdata(stateCd=sCode,parameterCd=pCode, service="dv")
+      outD <- toString(stDV[4])
+      plotOutput(outputId = outD)
     }
   })
 })
