@@ -1,6 +1,6 @@
 library(dataRetrieval)
 
-shinyServer(function(input, output) {
+shinyServer <- function(input, output) {
   state = c("Alabama","Texas","California","Wyoming", "Nebraska")
   code = c("AL","TX","CA","WI","NE")
   parameters = c("Discharge","Gage Height","Temperature","pH")
@@ -16,8 +16,10 @@ shinyServer(function(input, output) {
     else{
       sCode = code[value1]
       pCode = codeP[value2]
-      stDV <- readNWISdata(stateCd=sCode,parameterCd=pCode, service="dv")
-      output$outD <- renderTable(stDV)
+      stDV = readNWISuv(siteNumbers = "05427718",parameterCd = "00060",startDate = "2014-10-01",endDate = "2015-09-30")
+      outD = renderDataTable(table(renameNWISColumns(stDV)))
+      #outD
+      #print(stDV)
     }
   })
-})
+}

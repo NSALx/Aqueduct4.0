@@ -1,6 +1,6 @@
 # ui.R
 
-shinyUI(fluidPage(
+shinyUI <- fluidPage(
   titlePanel("Where is the Water??"),
   
   selectInput(inputId = "n_states",
@@ -14,7 +14,7 @@ shinyUI(fluidPage(
               selected = "Temperature"),
   
   dataTableOutput("outD")
-  #textOutput(outputId = "main_plot"),
+  #textOutput(outputId = "main_plot")
   #plotOutput(outputId = "main_plot")
   
-))
+)
