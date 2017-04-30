@@ -5,7 +5,7 @@ shinyUI <- fluidPage(
   
   selectInput(inputId = "n_states",
                 label = "Choose a State:",
-                choices = c("Select Option","Alabama","Texas","California","Wyoming", "Nebraska"),
+                choices = c("Select Option","Alabama","Texas","California","Wyoming", "Nebraska", "Montana"),
                 selected = "Texas"),
   
   selectInput(inputId = "parameter",
@@ -13,8 +13,13 @@ shinyUI <- fluidPage(
               choices = c("Select Option","Discharge","Gage Height","Temperature","pH", "Ground Water Level"),
               selected = "Temperature"),
   dateRangeInput(inputId = "date", 
-                 label = "Choose a date range: "),
+                 label = "Choose a date range: ",
+                 start = "2016-12-02"),
   
+  titlePanel("Sum:"),
+  textOutput(outputId = "sumValue"),
+  titlePanel("Average:"),
+  textOutput(outputId = "averageValue"),
   tableOutput(outputId = 'outD')
   #textOutput(outputId = "main_plot")
   #plotOutput(outputId = "main_plot")
