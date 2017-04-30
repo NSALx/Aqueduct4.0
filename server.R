@@ -6,18 +6,12 @@ shinyServer <- function(input, output) {
   parameters = c("Discharge","Gage Height","Temperature","pH")
   codeP = c("00060", "00065", "00010", "00400", "72150")
   
-  value1 = match(input$n_states,state)
-  value2 = match(input$parameter,parameters)
-
-  if(is.na(value1) || is.na(value2)){
-      textOutput
-  }
+#  value1 = match(input$n_states,state)
+ # value2 = match(input$parameter,parameters)
+  #sCode = code[value1]
+  #pCode = codeP[value2]
   
-  else{
-    sCode = code[value1]
-    pCode = codeP[value2]
-    stDV <- readNWISuv(siteNumbers = "05427718",parameterCd = "00060",startDate = "2014-10-01",endDate = "2015-09-30")
-    output$outD <- renderTable(stDV)
-    #print(toString(stDV))
-  }
+  stDV <- readNWISuv(siteNumbers = "05427718",parameterCd = "00060",startDate = "2014-10-01",endDate = "2015-09-30")
+  output$outD <- renderTable(stDV)
+
 }
