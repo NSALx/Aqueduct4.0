@@ -14,7 +14,8 @@ shinyUI <- fluidPage(
               selected = "Temperature"),
   dateRangeInput(inputId = "date", 
                  label = "Choose a date range: ",
-                 start = "2016-12-02"),
+                 start = "2016-12-02",
+                 end = "2016-12-03"),
   
   titlePanel("Sum:"),
   textOutput(outputId = "sumValue"),
