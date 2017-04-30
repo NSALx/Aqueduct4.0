@@ -12,6 +12,8 @@ shinyUI <- fluidPage(
               label = "Choose a Parameter:",
               choices = c("Select Option","Discharge","Gage Height","Temperature","pH", "Ground Water Level"),
               selected = "Temperature"),
+  dateRangeInput(inputId = "date", 
+                 label = "Choose a date range: "),
   
   tableOutput(outputId = 'outD')
   #textOutput(outputId = "main_plot")
