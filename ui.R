@@ -13,7 +13,7 @@ shinyUI <- fluidPage(
               choices = c("Select Option","Discharge","Gage Height","Temperature","pH", "Ground Water Level"),
               selected = "Temperature"),
   
-  dataTableOutput("outD")
+  dataTableOutput(outputId = "outD")
   #textOutput(outputId = "main_plot")
   #plotOutput(outputId = "main_plot")
   

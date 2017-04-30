@@ -17,9 +17,8 @@ shinyServer <- function(input, output) {
       sCode = code[value1]
       pCode = codeP[value2]
       stDV = readNWISuv(siteNumbers = "05427718",parameterCd = "00060",startDate = "2014-10-01",endDate = "2015-09-30")
-      outD = renderDataTable(table(renameNWISColumns(stDV)))
-      #outD
-      #print(stDV)
+      output$outD = renderDataTable(table(stDV))
+      #print(toString(stDV))
     }
   })
 }
