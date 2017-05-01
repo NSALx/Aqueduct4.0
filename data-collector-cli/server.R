@@ -1,5 +1,7 @@
 library(dataRetrieval)
 
+isPositive <- function(x) x>=0
+
 shinyServer <- function(input, output) {
   state = c("Alabama","Texas","California","Wyoming", "Nebraska", "Montana") #Vector used to map between 
   code = c("AL","TX","CA","WI","NE", "MN")                                   #choices and codes
