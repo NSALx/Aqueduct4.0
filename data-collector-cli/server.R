@@ -5,8 +5,10 @@ isPositive <- function(x) x>=0
 shinyServer <- function(input, output) {
   state = c("Alabama","Texas","California","Wyoming", "Nebraska", "Montana") #Vector used to map between 
   code = c("AL","TX","CA","WI","NE", "MN")                                   #choices and codes
-  parameters = c("Discharge","Gage Height","Temperature","pH")
-  codeP = c("00060", "00065", "00010", "00400")
+  parameters = c("Discharge","Gage Height","Temperature","pH", "Ground Water Level")
+  codeP = c("00060", "00065", "00010", "00400", "72150")  #TODO: GWL code
+  
+  
   
   output$outD <- renderTable({
 
@@ -22,6 +24,7 @@ shinyServer <- function(input, output) {
  
     output$sumValue <- reactive(toString(sum(Filter(isPositive, stDV[,4]), na.rm=TRUE)))
     output$averageValue <- reactive(toString(mean(Filter(isPositive, stDV[,4]), na.rm=TRUE)))
+    print(attr(stDV, "url"))                #Debugging purposes
     stDV
   })
 }
